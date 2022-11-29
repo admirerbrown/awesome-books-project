@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
+   
     <title>Document</title>
 </head>
 <body>
     <section class="display-book">
         <h1>Awesome books</h1>
-        <div class="books">
+        <div class="bookshelf">
             <p>book1</p>
             <p>john</p>
             <button>Remove</button>
@@ -22,11 +22,13 @@
         </div>
     </section>
     <section class="add-book">
-        <form action="">
-            <input type="text" placeholder="Title">
-            <input type="text" placeholder="Author">
-            <button>Add</button>
+        <form id="form">
+            <input id="title" class="title" name="title" type="text" placeholder="Title">
+            <input id="author" class="author" name="author" type="text" placeholder="Author">
+            <input class ="add-btn" type="submit" name="add" value="Add">
         </form>
     </section>
+
+    <script src="index.js"></script>
 </body>
 </html>
