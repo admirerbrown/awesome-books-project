@@ -1,45 +1,62 @@
-const addBook = document.querySelector(".add-btn");
-const formVal = document.querySelectorAll("form input");
-let collections = [];
-const bookshelf = document.querySelector(".bookshelf");
+/* eslint-disable no-unused-vars */
 
-function showBooks(title, author, counter) {
-     const div = document.createElement('div');
-     div.id = counter;
-     
-  div.innerHTML = `
-            <p>${title}</p>
-            <p>${author}</p>
-            <button class="remove ${counter}">Remove</button>
-            <hr>`;
-            bookshelf.appendChild(div);
+const Title = document.querySelector(".title");
+const author = document.querySelector(".author");
+const registeredBooks = document.querySelector(".book-list");
+const addButton = document.querySelector(".addbook");
 
-  const takeout = document.querySelectorAll(".remove");
-  takeout.forEach((item) => {
-    item.addEventListener("click", (item) =>{
-        // console.log(item)
-        const bookList = document.querySelectorAll('.div');
-        div.parentNode.removeChild(div);
-        localStorage.setItem('books', JSON.stringify(collections));
-    })
-  })
+let Books = [];
+
+
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
 }
 
-let counter = 0;
-addBook.addEventListener("click", (e) => {
-  e.preventDefault();
-  counter += 1;
-  const titleVal = formVal[0].value;
-  const authorVal = formVal[1].value;
-  collections.push({ titleVal, authorVal, counter});
-  console.log("i am ", collections);
+//UI class
 
-  // store bookdata
-  localStorage.setItem("books", JSON.stringify(collections));
-  showBooks(titleVal, authorVal, counter);
+class UI {
+  static addBooks() {
+    registeredBooks.innerHTML = "";
+    for (let i = 0; i < Books.length; i++) {
+      registeredBooks.innerHTML += `
+      <div class="title-and-author"> 
+        <p class="Title">"${Books[i].title}" by  ${Books[i].author}</p>
+        <button class="button" onclick="UI.remove(${i})">remove</button>
+      </div>
+
+     `;
+      Title.value = "";
+      author.value = "";
+      Title.focus();
+    }
+  }
+//remove
+
+  static remove(index) {
+    Books.splice(index, 1);
+    UI.addBooks();
+    localStorage.setItem("Books", JSON.stringify(Books));
+  }
+  
+}
+
+window.onload = () => {
+  if (localStorage.getItem("Books")) {
+    Books = JSON.parse(localStorage.getItem("Books"));
+  }
+  UI.addBooks();
+};
+
+//add
+
+addButton.addEventListener("click", () => {
+  const book = new Book(Title.value, author.value);
+  Books.push(book);
+  UI.addBooks();
+  localStorage.setItem("Books", JSON.stringify(Books));
 });
 
-if (localStorage.getItem('books')){
-    bookList = JSON.parse(localStorage.getItem('books'));
-   console.log(bookList);
-}
+
