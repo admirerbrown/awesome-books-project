@@ -9,7 +9,7 @@ let Books = [];
 
 function BookData() {
   registeredBooks.innerHTML = '';
-  for (let i = 0; i < Books.length; i+=1) {
+  for (let i = 0; i < Books.length; i += 1) {
     registeredBooks.innerHTML += `
     <div>
       <p class="Title">${Books[i].Title}</p>
