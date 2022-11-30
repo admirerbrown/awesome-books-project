@@ -51,25 +51,23 @@ addButton.addEventListener('click', () => {
   localStorage.setItem('Books', JSON.stringify(Books));
 });
 
-ListMenu.addEventListener('click', () => {
+const listMenu = document.querySelector('.booksdata');
+const addMenu = document.querySelector('.addbooks');
+const contactMenu = document.querySelector('.contact');
 
+listMenu.addEventListener('click', () => {
   document.querySelector('.booksdata').style.display = 'block';
   document.querySelector('.addbooks').style.display = 'none';
   document.querySelector('.contact').style.display = 'none';
-
-})
-AddMenu.addEventListener('click', () => {
-
+});
+addMenu.addEventListener('click', () => {
   document.querySelector('.booksdata').style.display = 'none';
   document.querySelector('.addbooks').style.display = 'block';
   document.querySelector('.contact').style.display = 'none';
+});
 
-})
-
-ContactMenu.addEventListener('click', () => {
-
+contactMenu.addEventListener('click', () => {
   document.querySelector('.booksdata').style.display = 'none';
   document.querySelector('.addbooks').style.display = 'none';
   document.querySelector('.contact').style.display = 'block';
-
-})
+});
