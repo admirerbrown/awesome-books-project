@@ -1,14 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
-/* eslint-disable max-classes-per-file */ 
+/* eslint-disable max-classes-per-file */
 
-const Title = document.querySelector(".title");
-const author = document.querySelector(".author");
-const registeredBooks = document.querySelector(".book-list");
-const addButton = document.querySelector(".addbook");
+const Title = document.querySelector('.title');
+const author = document.querySelector('.author');
+const registeredBooks = document.querySelector('.book-list');
+const addButton = document.querySelector('.addbook');
 
 let Books = [];
-
 
 class Book {
   constructor(title, author) {
@@ -17,11 +16,11 @@ class Book {
   }
 }
 
-//UI class
+// UI class
 
 class UI {
   static addBooks() {
-    registeredBooks.innerHTML = "";
+    registeredBooks.innerHTML = '';
     for (let i = 0; i < Books.length; i++) {
       registeredBooks.innerHTML += `
       <div class="title-and-author"> 
@@ -30,33 +29,32 @@ class UI {
       </div>
 
      `;
-      Title.value = "";
-      author.value = "";
+      Title.value = '';
+      author.value = '';
       Title.focus();
     }
   }
-//remove
+  // remove
 
   static remove(index) {
     Books.splice(index, 1);
     UI.addBooks();
-    localStorage.setItem("Books", JSON.stringify(Books));
+    localStorage.setItem('Books', JSON.stringify(Books));
   }
-  
 }
 
 window.onload = () => {
-  if (localStorage.getItem("Books")) {
-    Books = JSON.parse(localStorage.getItem("Books"));
+  if (localStorage.getItem('Books')) {
+    Books = JSON.parse(localStorage.getItem('Books'));
   }
   UI.addBooks();
 };
 
-//add
+// add
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener('click', () => {
   const book = new Book(Title.value, author.value);
   Books.push(book);
   UI.addBooks();
-  localStorage.setItem("Books", JSON.stringify(Books));
+  localStorage.setItem('Books', JSON.stringify(Books));
 });
