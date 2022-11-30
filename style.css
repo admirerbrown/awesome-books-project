@@ -46,3 +46,27 @@ form button {
 .title-and-author:nth-child(even) {
   background-color: white;
 }
+
+header nav {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+header div {
+  display: flex;
+  /* gap: 15px; */
+}
+
+header a {
+  text-decoration: none;
+  list-style: none;
+  align-self: center;
+  padding: 0 15px;
+}
+
+#a-border {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
