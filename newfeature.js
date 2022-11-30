@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 const Title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const registeredBooks = document.querySelector('.book-list');
