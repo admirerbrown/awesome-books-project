@@ -60,5 +60,3 @@ addButton.addEventListener("click", () => {
   UI.addBooks();
   localStorage.setItem("Books", JSON.stringify(Books));
 });
-
-
