@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
+/* eslint-disable max-classes-per-file */ 
 
 const Title = document.querySelector(".title");
 const author = document.querySelector(".author");
