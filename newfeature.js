@@ -1,5 +1,3 @@
-/* eslint-disable max-classes-per-file */
-
 const Title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const registeredBooks = document.querySelector('.book-list');
@@ -12,18 +10,14 @@ class Book {
     this.title = title;
     this.author = author;
   }
-}
 
-// BookScreen class
-
-class BookScreen {
   static addBooks() {
     registeredBooks.innerHTML = '';
     for (let i = 0; i < Books.length; i += 1) {
       registeredBooks.innerHTML += `
       <div class="title-and-author"> 
         <p class="Title">"${Books[i].title}" by  ${Books[i].author}</p>
-        <button class="button" onclick="BookScreen.remove(${i})">remove</button>
+        <button class="button" onclick="Book.remove(${i})">remove</button>
       </div>
 
      `;
@@ -36,7 +30,7 @@ class BookScreen {
 
   static remove(index) {
     Books.splice(index, 1);
-    BookScreen.addBooks();
+    Book.addBooks();
     localStorage.setItem('Books', JSON.stringify(Books));
   }
 }
@@ -45,7 +39,7 @@ window.onload = () => {
   if (localStorage.getItem('Books')) {
     Books = JSON.parse(localStorage.getItem('Books'));
   }
-  BookScreen.addBooks();
+  Book.addBooks();
 };
 
 // add
@@ -53,6 +47,6 @@ window.onload = () => {
 addButton.addEventListener('click', () => {
   const book = new Book(Title.value, author.value);
   Books.push(book);
-  BookScreen.addBooks();
+  Book.addBooks();
   localStorage.setItem('Books', JSON.stringify(Books));
 });
