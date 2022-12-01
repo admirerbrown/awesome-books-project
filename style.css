@@ -70,3 +70,12 @@ header a {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
+.contact,
+.addbooks{
+  display: none;
+}
+
+.popup {
+  display: none;
+  font-size:40px;
+}

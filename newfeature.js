@@ -2,6 +2,7 @@ const Title = document.querySelector('.title');
 const author = document.querySelector('.author');
 const registeredBooks = document.querySelector('.book-list');
 const addButton = document.querySelector('.addbook');
+const popup = document.querySelector('.popup');
 
 let Books = [];
 
@@ -38,8 +39,14 @@ class Book {
 window.onload = () => {
   if (localStorage.getItem('Books')) {
     Books = JSON.parse(localStorage.getItem('Books'));
+
+    popup.style.display = 'none';
+    Book.addBooks();
+  } else {
+    popup.style.display = 'block';
   }
-  Book.addBooks();
+
+  // Book.addBooks();
 };
 
 // add
@@ -49,6 +56,7 @@ addButton.addEventListener('click', () => {
   Books.push(book);
   Book.addBooks();
   localStorage.setItem('Books', JSON.stringify(Books));
+  window.alert('book added successfully!');
 });
 
 const listMenu = document.querySelector('.list');
@@ -62,6 +70,7 @@ listMenu.addEventListener('click', () => {
   document.querySelector('.contact').style.display = 'none';
   document.querySelector('.add-new').style.textDecoration = 'none';
   document.querySelector('.see-contact').style.textDecoration = 'none';
+  // popup.style.display = 'none';
 });
 addMenu.addEventListener('click', () => {
   document.querySelector('.add-new').style.textDecoration = 'underline';
@@ -70,6 +79,7 @@ addMenu.addEventListener('click', () => {
   document.querySelector('.contact').style.display = 'none';
   document.querySelector('.see-contact').style.textDecoration = 'none';
   document.querySelector('.list').style.textDecoration = 'none';
+  // popup.style.display = 'none';
 });
 
 contactMenu.addEventListener('click', () => {
@@ -79,4 +89,5 @@ contactMenu.addEventListener('click', () => {
   document.querySelector('.contact').style.display = 'block';
   document.querySelector('.add-new').style.textDecoration = 'none';
   document.querySelector('.list').style.textDecoration = 'none';
+  // popup.style.display = 'none';
 });
