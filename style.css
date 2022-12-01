@@ -1,5 +1,5 @@
 * {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: lightblue;
 }
 
@@ -56,7 +56,6 @@ header nav {
 
 header div {
   display: flex;
-  /* gap: 15px; */
 }
 
 header a {
@@ -70,12 +69,13 @@ header a {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
+
 .contact,
-.addbooks{
+.addbooks {
   display: none;
 }
 
 .popup {
   display: none;
-  font-size:40px;
+  font-size: 40px;
 }
